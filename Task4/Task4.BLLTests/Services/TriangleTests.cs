@@ -8,7 +8,7 @@ namespace Task4.BLLTests.Services
 	public class TriangleTests
 	{
 		[TestMethod()]
-		public void ConstructorTestNegativeArguments()
+		public void ConstructorTestNegativeArgumentsTest()
 		{
 			try
 			{
@@ -21,7 +21,16 @@ namespace Task4.BLLTests.Services
 
 			try
 			{
-				var trianglePositive = new Triangle(5, 1, 9);
+				var tiangle = new Triangle(9, 1, 2);
+			}
+			catch (ArgumentException e)
+			{
+				Assert.AreEqual("System.ArgumentException", e.GetType().ToString());
+			}
+
+			try
+			{
+				var trianglePositive = new Triangle(5, 7, 9);
 			}
 			catch (Exception e)
 			{
@@ -33,20 +42,25 @@ namespace Task4.BLLTests.Services
 		public void PerimetrTest()
 		{
 			var tringle1 = new Triangle(9, 5, 7);
-			var triangle2 = new Triangle(7.01, 22.657, 34.05);
 
-			Assert.AreEqual(21, tringle1.Perimetr());
-			Assert.AreEqual(63.717, triangle2.Perimetr());
+			Assert.AreEqual(21, tringle1.Perimetr);
+
+			try
+			{
+				var triangle2 = new Triangle(9.64, 3.2, 5.972);
+			}
+			catch (ArgumentException e)
+			{
+				Assert.AreEqual("System.ArgumentException", e.GetType().ToString());
+			}
 		}
 
 		[TestMethod()]
-		public void HalfPerimetrTest()
+		public void AreaTest()
 		{
-			var triangle1 = new Triangle(4, 8, 6);
-			var triangle2 = new Triangle(9.64, 3.002, 5.972);
+			var triangle1 = new Triangle(4, 5, 3);
 
-			Assert.AreEqual(9, triangle1.HalfPerimetr());
-			Assert.AreEqual(9.307, triangle2.HalfPerimetr());
+			Assert.AreEqual(6, triangle1.Area());
 		}
 	}
 }

@@ -11,30 +11,58 @@ namespace Task4.UI
 	{
 		static void Main(string[] args)
 		{
-			var triangle = new Triangle(4.95, 5.244, 3.11);
-			var triangle2 = new Triangle();
-
-			if (triangle.Exsist)
+			try
 			{
+				var triangle = new Triangle(4.95, 5.244, 3.11);
 				Console.WriteLine($"Sides of triangle: {triangle}");
 				Console.WriteLine(triangle.GetPerimetr);
 				Console.WriteLine(triangle.GetArea);
 			}
-			else
+			catch (Exception e)
 			{
 				Console.BackgroundColor = ConsoleColor.Red;
-				Console.WriteLine("Triangle is not defined");
+				Console.WriteLine(e.GetType());
+				Console.WriteLine(e.Message);
+				Console.ResetColor();
 			}
 
-			if (triangle2.Exsist)
+			try
 			{
+				var triangle2 = new Triangle();
 				Console.WriteLine(triangle2);
 			}
-			else
+			catch (Exception e)
 			{
 				Console.BackgroundColor = ConsoleColor.Red;
-				Console.WriteLine("Triangle is not defined");
+				Console.WriteLine(e.GetType()); 
+				Console.WriteLine(e.Message);
+				Console.ResetColor();
 			}
+
+			try
+			{
+				var triangle3 = new Triangle(9.64, 3.2, 5.972);
+			}
+			catch (Exception e)
+			{
+				Console.BackgroundColor = ConsoleColor.Red;
+				Console.WriteLine(e.GetType());
+				Console.WriteLine(e.Message);
+				Console.ResetColor();
+			}
+
+			try
+			{
+				var triangle4 = new Triangle(0, -2, 10);
+			}
+			catch (Exception e)
+			{
+				Console.BackgroundColor = ConsoleColor.Red;
+				Console.WriteLine(e.GetType());
+				Console.WriteLine(e.Message);
+				Console.ResetColor();
+			}
+
 			Console.ReadKey();
 		}
 	}
