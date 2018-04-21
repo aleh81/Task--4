@@ -36,9 +36,11 @@ namespace Task4.BLL.Services
 			}
 		}
 
-		private bool Exsist => (A.HasValue) && (B.HasValue) && (C.HasValue);
+		private bool Exsist => 
+			(A.HasValue) && (B.HasValue) && (C.HasValue);
 
-		public double? Perimetr => A + B + C;
+		public double? Perimetr => Exsist ?
+			A + B + C : throw new ArgumentException(ExeptionTriangleExsist);
 
 		public double? HalfPerimetr => Perimetr / 2;
 
