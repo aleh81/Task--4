@@ -28,6 +28,16 @@ namespace Task4.BLLTests.Services
 				Assert.AreEqual("System.ArgumentException", e.GetType().ToString());
 			}
 
+
+			try
+			{
+				var triangle2 = new Triangle(9.64, 3.2, 5.972);
+			}
+			catch (ArgumentException e)
+			{
+				Assert.AreEqual("System.ArgumentException", e.GetType().ToString());
+			}
+
 			try
 			{
 				var trianglePositive = new Triangle(5, 7, 9);
@@ -44,15 +54,6 @@ namespace Task4.BLLTests.Services
 			var tringle1 = new Triangle(9, 5, 7);
 
 			Assert.AreEqual(21, tringle1.Perimetr);
-
-			try
-			{
-				var triangle2 = new Triangle(9.64, 3.2, 5.972);
-			}
-			catch (ArgumentException e)
-			{
-				Assert.AreEqual("System.ArgumentException", e.GetType().ToString());
-			}
 		}
 
 		[TestMethod()]
@@ -61,6 +62,35 @@ namespace Task4.BLLTests.Services
 			var triangle1 = new Triangle(4, 5, 3);
 
 			Assert.AreEqual(6, triangle1.Area());
+		}
+
+		[TestMethod()]
+		public void ExsistTest()
+		{
+			var triangle1 = new Triangle(4, 5, 3);
+
+			Assert.AreEqual(true, triangle1.Exsist);
+
+			var triangle2 = new Triangle();
+
+			Assert.AreEqual(false, triangle2.Exsist);
+		}
+
+		[TestMethod()]
+		public void PowTest()
+		{
+			var triangle1 = new Triangle(4, 5, 3);
+			var trianglePow = Triangle.Pow(6, 2);
+
+			Assert.AreEqual(36, trianglePow);
+		}
+
+		[TestMethod()]
+		public void SqrtTest()
+		{
+			var sqrt = Triangle.Sqrt(36);
+
+			Assert.AreEqual(6, sqrt);
 		}
 	}
 }

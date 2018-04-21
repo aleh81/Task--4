@@ -36,7 +36,7 @@ namespace Task4.BLL.Services
 			}
 		}
 
-		private bool Exsist => 
+		public bool Exsist => 
 			(A.HasValue) && (B.HasValue) && (C.HasValue);
 
 		public double? Perimetr => Exsist ?
@@ -44,10 +44,10 @@ namespace Task4.BLL.Services
 
 		public double? HalfPerimetr => Perimetr / 2;
 
-		private static double? Pow(double? a, int pow) => 
+		public static double? Pow(double? a, int pow) => 
 			pow != 1 ? a * Pow(a, --pow) : a;
 
-		private static double? Sqrt(double? num, int n = 2, double eps = 0.000001, double? startNum = null)
+		public static double? Sqrt(double? num, int n = 2, double eps = 0.000001, double? startNum = null)
 		{
 			if (startNum == null)
 			{
