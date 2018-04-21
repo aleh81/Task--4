@@ -75,22 +75,5 @@ namespace Task4.BLLTests.Services
 
 			Assert.AreEqual(false, triangle2.Exsist);
 		}
-
-		[TestMethod()]
-		public void PowTest()
-		{
-			var triangle1 = new Triangle(4, 5, 3);
-			var trianglePow = Triangle.Pow(6, 2);
-
-			Assert.AreEqual(36, trianglePow);
-		}
-
-		[TestMethod()]
-		public void SqrtTest()
-		{
-			var sqrt = Triangle.Sqrt(36);
-
-			Assert.AreEqual(6, sqrt);
-		}
 	}
 }
