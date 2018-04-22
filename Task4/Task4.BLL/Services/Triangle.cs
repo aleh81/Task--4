@@ -63,6 +63,10 @@ namespace Task4.BLL.Services
 			return Geometry.Sqrt(s);
 		}
 
+		public override string ToString() => Exsist ?
+			GetSidesToString + '\n' + GetPerimetrToString + '\n' + GetAreaToString + '\n'
+			: throw new ArgumentException(ExeptionTriangleExsist);
+
 		private string GetSidesToString => Exsist ?
 			$"Sides of triangle: A ={A: 0.00} cm; B ={B: 0.00} cm; C ={C: 0.00} cm;"
 			: throw new ArgumentException(ExeptionTriangleExsist);
@@ -73,10 +77,6 @@ namespace Task4.BLL.Services
 
 		public string GetAreaToString => Exsist ?
 			$"The area of the triangle = {Area(): 0.00} cm squared"
-			: throw new ArgumentException(ExeptionTriangleExsist);
-
-		public override string ToString() => Exsist ?
-			GetSidesToString + '\n' + GetPerimetrToString + '\n' + GetAreaToString + '\n'
 			: throw new ArgumentException(ExeptionTriangleExsist);
 
 		public double? GetArea => Exsist ?
