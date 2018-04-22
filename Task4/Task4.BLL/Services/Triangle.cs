@@ -8,7 +8,8 @@ namespace Task4.BLL.Services
 		public double? A { get; private set; }
 		public double? B { get; private set; }
 		public double? C { get; private set; }
-        public static int Count { get; set; }
+
+		public static int Count { get; set; }
 
 		private const string ExeptionTriangleExsist = "ERROR: Triangle is not defined";
 		private const string ExeptionWrongArguments = "ERROR: The sides of triangle cannot be <= 0";
