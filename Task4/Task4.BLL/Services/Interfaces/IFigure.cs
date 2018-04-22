@@ -4,5 +4,7 @@
 	{
 		double? GetArea { get; }
 		double? GetPerimetr { get; }
+		string GetAreaToString { get; }
+		string GetPerimetrToString { get; }
 	}
 }
