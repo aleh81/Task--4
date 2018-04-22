@@ -44,6 +44,25 @@ namespace Task4.BLL.Services
 			}
 		}
 
+		private bool Exsist =>
+			(A.HasValue) && (B.HasValue) && (C.HasValue);
+
+		private double? Perimetr => Exsist ?
+			A + B + C : throw new ArgumentException(ExeptionTriangleExsist);
+
+		private double? HalfPerimetr => Perimetr / 2;
+
+		private double? Area()
+		{
+			var halfPerimetr = HalfPerimetr;
+
+			var p = (halfPerimetr - A) * (halfPerimetr - B) * (halfPerimetr - C);
+
+			var s = halfPerimetr * p;
+
+			return Geometry.Sqrt(s);
+		}
+
 		private string GetSidesToString => Exsist ?
 			$"Sides of triangle: A ={A: 0.00} cm; B ={B: 0.00} cm; C ={C: 0.00} cm;"
 			: throw new ArgumentException(ExeptionTriangleExsist);
@@ -65,24 +84,5 @@ namespace Task4.BLL.Services
 
 		public double? GetPerimetr => Exsist ?
 			Perimetr : throw new ArgumentException(ExeptionTriangleExsist);
-
-		private bool Exsist => 
-			(A.HasValue) && (B.HasValue) && (C.HasValue);
-
-		private double? Perimetr => Exsist ?
-			A + B + C : throw new ArgumentException(ExeptionTriangleExsist);
-
-		private double? HalfPerimetr => Perimetr / 2;
-
-		private double? Area()
-		{
-			var halfPerimetr = HalfPerimetr;
-
-			var p = (halfPerimetr - A) * (halfPerimetr - B) * (halfPerimetr - C);
-
-			var s = halfPerimetr * p;
-
-			return Geometry.Sqrt(s);
-		}
 	}
 }
