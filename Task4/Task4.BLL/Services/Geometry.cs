@@ -1,4 +1,6 @@
-﻿namespace Task4.BLL.Services
+﻿using System.Dynamic;
+
+namespace Task4.BLL.Services
 {
 	public static class Geometry
 	{
@@ -13,16 +15,9 @@
 			}
 
 			var prev = num;
-			num = (1.0 / n) * ((n - 1) * num + startNum.Value / (Pow(num, n - 1)));
+			num = (1.0 / n) * ((n - 1) * num + startNum / (Pow(num, n - 1)));
 
-			if ((prev - num) >= eps)
-			{
-				return Sqrt(num, n, eps, startNum);
-			}
-			else
-			{
-				return num;
-			}
+			return (prev - num) >= eps ? Sqrt(num, n, eps, startNum) : num;
 		}
 	}
 }

@@ -36,15 +36,15 @@ namespace Task4.BLL.Services
 			}
 		}
 
-		public bool Exsist => 
+		private bool Exsist => 
 			(A.HasValue) && (B.HasValue) && (C.HasValue);
 
-		public double? Perimetr => Exsist ?
+		private double? Perimetr => Exsist ?
 			A + B + C : throw new ArgumentException(ExeptionTriangleExsist);
 
-		public double? HalfPerimetr => Perimetr / 2;
+		private double? HalfPerimetr => Perimetr / 2;
 
-		public double? Area()
+		private double? Area()
 		{
 			var halfPerimetr = HalfPerimetr;
 
@@ -59,12 +59,18 @@ namespace Task4.BLL.Services
 			$"A ={A: 0.00} cm; B ={B: 0.00} cm; C ={C: 0.00} cm;"
 		    : throw new ArgumentException(ExeptionTriangleExsist);
 
-		public string GetPerimetr => Exsist ?
+		public string GetPerimetrToString => Exsist ?
 			$"The perimetr of the triangle = {Perimetr: 0.00} cm"
 			: throw new ArgumentException(ExeptionTriangleExsist);
 
-		public string GetArea => Exsist ?
+		public string GetAreaToString => Exsist ?
 			$"The area of the triangle = {Area(): 0.00} cm squared"
 		    : throw new ArgumentException(ExeptionTriangleExsist);
+
+		public double? GetArea => Exsist ?
+			Area() : throw new ArgumentException(ExeptionTriangleExsist);
+
+		public double? GetPerimetr => Exsist ?
+			Perimetr : throw new ArgumentException(ExeptionTriangleExsist);
 	}
 }

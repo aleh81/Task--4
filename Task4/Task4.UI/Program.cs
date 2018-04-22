@@ -11,15 +11,12 @@ namespace Task4.UI
 			{
 				var triangle = new Triangle(4.95, 5.244, 3.11);
 				Console.WriteLine($"Sides of triangle: {triangle}");
-				Console.WriteLine(triangle.GetPerimetr);
-				Console.WriteLine(triangle.GetArea);
+				Console.WriteLine(triangle.GetPerimetrToString);
+				Console.WriteLine(triangle.GetAreaToString);
 			}
 			catch (Exception e)
 			{
-				Console.BackgroundColor = ConsoleColor.Red;
-				Console.WriteLine(e.GetType());
-				Console.WriteLine(e.Message);
-				Console.ResetColor();
+				ExceptionDisplay.Display(e);
 			}
 
 			try
@@ -29,10 +26,7 @@ namespace Task4.UI
 			}
 			catch (Exception e)
 			{
-				Console.BackgroundColor = ConsoleColor.Red;
-				Console.WriteLine(e.GetType()); 
-				Console.WriteLine(e.Message);
-				Console.ResetColor();
+				ExceptionDisplay.Display(e);
 			}
 
 			try
@@ -41,10 +35,7 @@ namespace Task4.UI
 			}
 			catch (Exception e)
 			{
-				Console.BackgroundColor = ConsoleColor.Red;
-				Console.WriteLine(e.GetType());
-				Console.WriteLine(e.Message);
-				Console.ResetColor();
+				ExceptionDisplay.Display(e);
 			}
 
 			try
@@ -53,10 +44,7 @@ namespace Task4.UI
 			}
 			catch (Exception e)
 			{
-				Console.BackgroundColor = ConsoleColor.Red;
-				Console.WriteLine(e.GetType());
-				Console.WriteLine(e.Message);
-				Console.ResetColor();
+				ExceptionDisplay.Display(e);
 			}
 
 			Console.ReadKey();

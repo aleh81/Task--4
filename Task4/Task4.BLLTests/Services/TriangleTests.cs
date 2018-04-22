@@ -51,29 +51,17 @@ namespace Task4.BLLTests.Services
 		[TestMethod()]
 		public void PerimetrTest()
 		{
-			var tringle1 = new Triangle(9, 5, 7);
+			var triangle = new Triangle(3, 5, 7);
 
-			Assert.AreEqual(21, tringle1.Perimetr);
+			Assert.AreEqual(15, triangle.GetPerimetr);
 		}
 
 		[TestMethod()]
 		public void AreaTest()
 		{
-			var triangle1 = new Triangle(4, 5, 3);
+			var triangle = new Triangle(3, 5, 7);
 
-			Assert.AreEqual(6, triangle1.Area());
-		}
-
-		[TestMethod()]
-		public void ExsistTest()
-		{
-			var triangle1 = new Triangle(4, 5, 3);
-
-			Assert.AreEqual(true, triangle1.Exsist);
-
-			var triangle2 = new Triangle();
-
-			Assert.AreEqual(false, triangle2.Exsist);
+			Assert.AreEqual(6.49519052838329, triangle.GetArea);
 		}
 	}
 }
