@@ -36,12 +36,13 @@ namespace Task4.BLL.Services
 				A = a;
 				B = b;
 				C = c;
+
+				if (Exsist)
+				{
+					Count++;
+				}
 			}
 
-			if (Exsist)
-			{
-				Count++;
-			}
 		}
 
 		private bool Exsist =>
