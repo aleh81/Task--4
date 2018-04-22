@@ -1,8 +1,9 @@
 ﻿using System;
+using Task4.BLL.Services.Interfaces;
 
 namespace Task4.BLL.Services
 {
-	public class Triangle
+	public class Triangle: IFigure
 	{
 		public double? A { get; private set; }
 		public double? B { get; private set; }

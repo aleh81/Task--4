@@ -43,6 +43,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\ExceptionDisplay.cs" />
     <Compile Include="Services\Geometry.cs" />
+    <Compile Include="Services\Interfaces\IFigure.cs" />
     <Compile Include="Services\Triangle.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
