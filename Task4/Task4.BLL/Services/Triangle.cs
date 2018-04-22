@@ -8,6 +8,7 @@ namespace Task4.BLL.Services
 		public double? A { get; private set; }
 		public double? B { get; private set; }
 		public double? C { get; private set; }
+        public static int Count { get; set; }
 
 		private const string ExeptionTriangleExsist = "ERROR: Triangle is not defined";
 		private const string ExeptionWrongArguments = "ERROR: The sides of triangle cannot be <= 0";
@@ -35,7 +36,34 @@ namespace Task4.BLL.Services
 				B = b;
 				C = c;
 			}
+
+			if (Exsist)
+			{
+				Count++;
+			}
 		}
+
+		private string GetSidesToString => Exsist ?
+			$"Sides of triangle: A ={A: 0.00} cm; B ={B: 0.00} cm; C ={C: 0.00} cm;"
+			: throw new ArgumentException(ExeptionTriangleExsist);
+
+		public string GetPerimetrToString => Exsist ?
+			$"The perimetr of the triangle = {Perimetr: 0.00} cm"
+			: throw new ArgumentException(ExeptionTriangleExsist);
+
+		public string GetAreaToString => Exsist ?
+			$"The area of the triangle = {Area(): 0.00} cm squared"
+			: throw new ArgumentException(ExeptionTriangleExsist);
+
+		public override string ToString() => Exsist ?
+			GetSidesToString + '\n' + GetPerimetrToString + '\n' + GetAreaToString + '\n'
+			: throw new ArgumentException(ExeptionTriangleExsist);
+
+		public double? GetArea => Exsist ?
+			Area() : throw new ArgumentException(ExeptionTriangleExsist);
+
+		public double? GetPerimetr => Exsist ?
+			Perimetr : throw new ArgumentException(ExeptionTriangleExsist);
 
 		private bool Exsist => 
 			(A.HasValue) && (B.HasValue) && (C.HasValue);
@@ -55,23 +83,5 @@ namespace Task4.BLL.Services
 
 			return Geometry.Sqrt(s);
 		}
-
-		public override string ToString() => Exsist ?
-			$"A ={A: 0.00} cm; B ={B: 0.00} cm; C ={C: 0.00} cm;"
-		    : throw new ArgumentException(ExeptionTriangleExsist);
-
-		public string GetPerimetrToString => Exsist ?
-			$"The perimetr of the triangle = {Perimetr: 0.00} cm"
-			: throw new ArgumentException(ExeptionTriangleExsist);
-
-		public string GetAreaToString => Exsist ?
-			$"The area of the triangle = {Area(): 0.00} cm squared"
-		    : throw new ArgumentException(ExeptionTriangleExsist);
-
-		public double? GetArea => Exsist ?
-			Area() : throw new ArgumentException(ExeptionTriangleExsist);
-
-		public double? GetPerimetr => Exsist ?
-			Perimetr : throw new ArgumentException(ExeptionTriangleExsist);
 	}
 }

@@ -9,6 +9,7 @@ namespace Task4.BLL.Helpers
 			Console.BackgroundColor = ConsoleColor.Red;
 			Console.WriteLine(e.GetType());
 			Console.WriteLine(e.Message);
+			Console.WriteLine();
 			Console.ResetColor();
 		}
 	}
