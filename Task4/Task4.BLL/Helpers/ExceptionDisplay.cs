@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Task4.BLL.Services
+namespace Task4.BLL.Helpers
 {
 	public static class ExceptionDisplay
 	{
