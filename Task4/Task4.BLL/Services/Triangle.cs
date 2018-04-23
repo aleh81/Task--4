@@ -102,9 +102,9 @@ namespace Task4.BLL.Services
 			lhs.Perimetr + rhs.Perimetr;
 
 		/// <summary>
-		/// 
+		/// Getting full information about triangle
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>full info of object</returns>
 		public override string ToString() => Exsist ?
 			GetSidesToString + '\n' + GetPerimetrToString + '\n' + GetAreaToString + '\n'
 			: throw new ArgumentException(ExeptionTriangleExsist);
