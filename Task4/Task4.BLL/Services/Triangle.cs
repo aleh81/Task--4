@@ -23,11 +23,11 @@ namespace Task4.BLL.Services
 
 		public Triangle(double? a, double? b, double? c)
 		{
-			if (Geometry.LessOrEqualToZero(a, b, c))
+			if (LessOrEqualToZero(a, b, c))
 			{
 				throw new ArgumentException(ExeptionWrongArguments);
 			}
-			else if (Geometry.CorrectnessSidesOfTriangle(a, b, c))
+			else if (CorrectnessSides(a, b, c))
 			{
 				throw new ArgumentException(ExeptionLenghtOfSideOfTriangle);
 			}
@@ -62,6 +62,12 @@ namespace Task4.BLL.Services
 
 			return Geometry.Sqrt(s);
 		}
+
+		private static bool LessOrEqualToZero(double? a, double? b, double? c) =>
+			(a <= 0) || (b <= 0) || (c <= 0);
+
+		private static bool CorrectnessSides(double? a, double? b, double? c) =>
+			a > (b + c) || b > (c + a) || c > (a + b);
 
 		public static double? operator +(Triangle lhs, Triangle rhs) =>
 			lhs.Perimetr + rhs.Perimetr;

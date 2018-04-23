@@ -20,11 +20,5 @@ namespace Task4.BLL.Services
 
 			return (prev - num) >= eps ? Sqrt(num, n, eps, startNum) : num;
 		}
-
-		public static bool LessOrEqualToZero(double? a, double? b, double? c) =>
-			(a <= 0) || (b <= 0) || (c <= 0);
-
-		public static bool CorrectnessSidesOfTriangle(double? a, double? b, double? c) =>
-			a > (b + c) || b > (c + a) || c > (a + b);
 	}
 }
