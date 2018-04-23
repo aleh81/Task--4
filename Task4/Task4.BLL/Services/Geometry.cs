@@ -5,8 +5,10 @@ namespace Task4.BLL.Services
 {
 	public static class Geometry
 	{
+
 		public static double? Pow(double? a, int pow) =>
 			pow != 1 ? a * Pow(a, --pow) : a;
+
 
 		public static double? Sqrt(double? num, int n = 2, double eps = 0.000001, double? startNum = null)
 		{
