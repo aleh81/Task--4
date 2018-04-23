@@ -69,6 +69,18 @@ namespace Task4.UI
 				Console.WriteLine("Triangles are not defined");
 			}
 
+			try
+			{
+				var triangle1 = new Triangle(5, 5, 5);
+				var triangle2 = new Triangle(5, 5, 5);
+
+				Console.WriteLine($"Sum of triangle1 + triangle2 = {triangle1 + triangle2}");
+			}
+			catch (Exception e)
+			{
+				ExceptionDisplay.Display(e);
+			}
+
 			Console.ReadKey();
 		}
 	}

@@ -63,5 +63,14 @@ namespace Task4.BLLTests.Services
 
 			Assert.AreEqual(6.49519052838329, triangle.GetArea);
 		}
+
+		[TestMethod()]
+		public void OverloadOperatorTest()
+		{
+			var triangle1 = new Triangle(3, 5, 7);
+			var triangle2 = new Triangle(6, 4, 3);
+
+			Assert.AreEqual(28, triangle1 + triangle2);
+		}
 	}
 }

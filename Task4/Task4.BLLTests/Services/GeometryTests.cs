@@ -22,5 +22,20 @@ namespace Task4.BLLTests.Services
 
 			Assert.AreEqual(6, sqrt);
 		}
+
+
+		[TestMethod()]
+		public void LessOrEqualToZeroTest()
+		{
+			Assert.AreEqual(true, Geometry.LessOrEqualToZero(0, 2, 1));
+			Assert.AreEqual(false, Geometry.LessOrEqualToZero(1, 2, 1));
+		}
+
+		[TestMethod()]
+		public void CorrectnessSidesOfTriangleTest()
+		{
+			Assert.AreEqual(true, Geometry.CorrectnessSidesOfTriangle(99, 2, 1));
+			Assert.AreEqual(false, Geometry.CorrectnessSidesOfTriangle(1, 2, 1));
+		}
 	}
 }

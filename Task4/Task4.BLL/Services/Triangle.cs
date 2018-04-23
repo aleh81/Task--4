@@ -23,11 +23,11 @@ namespace Task4.BLL.Services
 
 		public Triangle(double? a, double? b, double? c)
 		{
-			if ((a <= 0) || (b <= 0) || (c <= 0))
+			if (Geometry.LessOrEqualToZero(a, b, c))
 			{
 				throw new ArgumentException(ExeptionWrongArguments);
 			}
-			else if (a > (b + c) || b > (c + a) || c > (a + b))
+			else if (Geometry.CorrectnessSidesOfTriangle(a, b, c))
 			{
 				throw new ArgumentException(ExeptionLenghtOfSideOfTriangle);
 			}
@@ -42,7 +42,6 @@ namespace Task4.BLL.Services
 					Count++;
 				}
 			}
-
 		}
 
 		private bool Exsist =>
@@ -63,6 +62,9 @@ namespace Task4.BLL.Services
 
 			return Geometry.Sqrt(s);
 		}
+
+		public static double? operator +(Triangle lhs, Triangle rhs) =>
+			lhs.Perimetr + rhs.Perimetr;
 
 		public override string ToString() => Exsist ?
 			GetSidesToString + '\n' + GetPerimetrToString + '\n' + GetAreaToString + '\n'
