@@ -17,7 +17,7 @@ namespace Task4.BLL.Services
 		/// </summary>
 		public double? B { get; private set; }
 		/// <summary>
-		/// The thirt side of the triangle
+		/// The third side of the triangle
 		/// </summary>
 		public double? C { get; private set; }
 
